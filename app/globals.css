@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --color-void: #0d0c0b;
+  --color-surface: #17140f;
+  --color-surface-raised: #201b14;
+  --color-rust: #c1502e;
+  --color-rust-bright: #e0693f;
+  --color-dust: #d89a5d;
+  --color-glow: #4d9c90;
+  --color-bone: #f1ece4;
+  --color-bone-dim: #b8b0a3;
+
+  /* Fonts */
+  --font-big-shoulders: "Big Shoulders Display";
+  --font-plex-sans: "IBM Plex Sans";
+}
+
+@theme inline {
+  --color-void: var(--color-void);
+  --color-surface: var(--color-surface);
+  --color-surface-raised: var(--color-surface-raised);
+  --color-rust: var(--color-rust);
+  --color-rust-bright: var(--color-rust-bright);
+  --color-dust: var(--color-dust);
+  --color-glow: var(--color-glow);
+  --color-bone: var(--color-bone);
+  --color-bone-dim: var(--color-bone-dim);
+
+  --font-display: var(--font-big-shoulders);
+  --font-body: var(--font-plex-sans);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-void);
+  color: var(--color-bone);
+  font-family: var(--font-body), "Segoe UI", sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-display), sans-serif;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Honeypot field: present in the DOM for bots, invisible and unreachable for people. */
+
+.hp-field {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  left: -9999px;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-dust);
+  outline-offset: 3px;
+}
